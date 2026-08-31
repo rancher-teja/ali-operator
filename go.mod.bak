@@ -2,7 +2,7 @@ module github.com/rancher/ali-operator
 
 go 1.27.0
 
-toolchain go1.27.5
+toolchain go1.27.0
 
 replace google.golang.org/genproto v0.0.0-20190819201941-24fa4b261c55 => google.golang.org/genproto v0.0.0-20250303144028-a0af3efb3deb
 
@@ -86,6 +86,7 @@ require (
 	sigs.k8s.io/structured-merge-diff/v6 v6.3.2 // indirect
 	sigs.k8s.io/yaml v1.6.0 // indirect
 )
+
 
 
 replace github.com/rancher/lasso => github.com/rancher-teja/lasso v0.0.0-00010101000000-000000000000
