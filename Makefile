@@ -24,9 +24,6 @@ GO_APIDIFF_VER := v0.8.3
 GO_APIDIFF_BIN := go-apidiff
 GO_APIDIFF := $(BIN_DIR)/$(GO_APIDIFF_BIN)-$(GO_APIDIFF_VER)
 
-MOCKGEN_VER := v0.6.0
-MOCKGEN_BIN := mockgen
-MOCKGEN := $(BIN_DIR)/$(MOCKGEN_BIN)-$(MOCKGEN_VER)
 GINKGO_VER := v2.28.1
 GINKGO_BIN := ginkgo
 GINKGO := $(BIN_DIR)/$(GINKGO_BIN)-$(GINKGO_VER)
@@ -41,9 +38,6 @@ else
 endif
 
 default: operator
-
-$(MOCKGEN):
-	GOBIN=$(BIN_DIR) $(GO_INSTALL) go.uber.org/mock/mockgen $(MOCKGEN_BIN) $(MOCKGEN_VER)
 
 $(GINKGO):
 	GOBIN=$(BIN_DIR) $(GO_INSTALL) github.com/onsi/ginkgo/v2/ginkgo $(GINKGO_BIN) $(GINKGO_VER)
@@ -61,7 +55,7 @@ generate:
 	$(MAKE) generate-go
 
 .PHONY: generate-go
-generate-go: $(MOCKGEN)
+generate-go:
 	go generate ./pkg/alibaba/...
 
 .PHONY: operator
